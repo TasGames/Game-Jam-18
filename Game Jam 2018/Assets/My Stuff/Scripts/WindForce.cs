@@ -55,7 +55,7 @@ public class WindForce : MonoBehaviour
 
 	void OnMouseOver()
 	{
-		if (Input.GetMouseButtonDown(0))
+		if (Input.GetMouseButtonUp(0))
 		{
 			if (powerLevel == 0)
 			{
