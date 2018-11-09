@@ -7,7 +7,7 @@ using UnityEngine;
 public class WindBlockMovement : MonoBehaviour 
 {
 	[SerializeField] protected float movementRange;
-	[SerializeField] protected bool isHorizontal;
+	public bool isHorizontal;
 
 	protected float maxX;
 	protected float maxZ;
@@ -43,8 +43,14 @@ public class WindBlockMovement : MonoBehaviour
 		}
 		else
 		{
-			transform.position = new Vector3(transform.position.x, transform.position.y, objPos.y);
+			transform.position = new Vector3(transform.position.x, transform.position.y, objPos.z);
+
+			if (transform.position.z > maxZ)
+				transform.position = new Vector3(transform.position.x, transform.position.y, maxZ);
+			else if (transform.position.z <minZ)
+				transform.position = new Vector3(transform.position.x, transform.position.y, minZ);
 		}
+		
 	}
 
 }

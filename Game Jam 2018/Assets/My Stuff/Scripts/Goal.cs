@@ -11,6 +11,5 @@ public class Goal : MonoBehaviour
 		score += 1;
 		Destroy(gameObject);
 		Spawner.goalSpawned = false;
-		Debug.Log(score);
 	}
 }

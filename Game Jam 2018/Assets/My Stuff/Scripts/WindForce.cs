@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class WindForce : MonoBehaviour 
 {
+	[SerializeField] WindBlockMovement wBM;
 	protected int powerLevel;
 	protected float windPower;
 	protected float windPower0;
@@ -36,20 +37,41 @@ public class WindForce : MonoBehaviour
 			Debug.DrawRay(transform.position, transform.forward * 30, Color.red);
 		}
 
-		if (Physics.Raycast(transform.position + new Vector3(0.8f ,0 ,0), transform.forward, out hit, 30))
+		if (wBM.isHorizontal == true)
 		{
-			if (hit.rigidbody != null)
-				hit.rigidbody.AddForce(hit.normal * windPower * -1);
+			if (Physics.Raycast(transform.position + new Vector3(0.8f ,0 ,0), transform.forward, out hit, 30))
+			{
+				if (hit.rigidbody != null)
+					hit.rigidbody.AddForce(hit.normal * windPower * -1);
 
-			Debug.DrawRay(transform.position + new Vector3(0.8f ,0 ,0), transform.forward * 30, Color.red);
+				Debug.DrawRay(transform.position + new Vector3(0.8f ,0 ,0), transform.forward * 30, Color.red);
+			}
+
+			if (Physics.Raycast(transform.position - new Vector3(0.8f ,0 ,0), transform.forward, out hit, 30))
+			{
+				if (hit.rigidbody != null)
+					hit.rigidbody.AddForce(hit.normal * windPower * -1);
+
+				Debug.DrawRay(transform.position - new Vector3(0.8f ,0 ,0), transform.forward * 30, Color.red);
+			}
 		}
-
-		if (Physics.Raycast(transform.position - new Vector3(0.8f ,0 ,0), transform.forward, out hit, 30))
+		else
 		{
-			if (hit.rigidbody != null)
-				hit.rigidbody.AddForce(hit.normal * windPower * -1);
+			if (Physics.Raycast(transform.position + new Vector3(0, 0 ,0.8f), transform.forward, out hit, 30))
+			{
+				if (hit.rigidbody != null)
+					hit.rigidbody.AddForce(hit.normal * windPower * -1);
 
-			Debug.DrawRay(transform.position - new Vector3(0.8f ,0 ,0), transform.forward * 30, Color.red);
+				Debug.DrawRay(transform.position + new Vector3 (0, 0 ,0.8f), transform.forward * 30, Color.red);
+			}
+
+			if (Physics.Raycast(transform.position - new Vector3(0, 0 ,0.8f), transform.forward, out hit, 30))
+			{
+				if (hit.rigidbody != null)
+					hit.rigidbody.AddForce(hit.normal * windPower * -1);
+
+				Debug.DrawRay(transform.position - new Vector3(0, 0 ,0.8f), transform.forward * 30, Color.red);
+			}			
 		}
 	}
 
