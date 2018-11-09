@@ -11,6 +11,12 @@ public class WindForce : MonoBehaviour
 	[SerializeField] protected float windPower1;
 	[SerializeField] protected float windPower2;
 	[SerializeField] protected float windPower3;
+	[SerializeField] protected GameObject pT1;
+	[SerializeField] protected GameObject pT2;
+	[SerializeField] protected GameObject pT3;
+	[SerializeField] protected GameObject pT1A;
+	[SerializeField] protected GameObject pT2A;
+	[SerializeField] protected GameObject pT3A;
 
 	void Start() 
 	{
@@ -55,25 +61,33 @@ public class WindForce : MonoBehaviour
 			{
 				windPower = windPower1;
 				powerLevel = 1;
-				Debug.Log(powerLevel);
+				pT1A.SetActive(true);
+				pT1.SetActive(false);
 			}
 			else if (powerLevel == 1)
 			{
 				windPower = windPower2;
 				powerLevel = 2;
-				Debug.Log(powerLevel);
+				pT2A.SetActive(true);
+				pT2.SetActive(false);
 			}
 			else if (powerLevel == 2)
 			{
 				windPower = windPower3;
 				powerLevel = 3;
-				Debug.Log(powerLevel);
+				pT3A.SetActive(true);
+				pT3.SetActive(false);
 			}
 			else if (powerLevel == 3)
 			{
 				windPower = windPower0;
 				powerLevel = 0;
-				Debug.Log(powerLevel);
+				pT1A.SetActive(false);
+				pT1.SetActive(true);
+				pT2A.SetActive(false);
+				pT2.SetActive(true);
+				pT3A.SetActive(false);
+				pT3.SetActive(true);
 			}
 		}
 	}
