@@ -8,9 +8,13 @@ public class Spawner : MonoBehaviour
 
 	public static bool goalSpawned;
 
-	void Start() 
+	void OnEnable()
 	{
-		
+		Vector3 spawnLocation = new Vector3(Random.Range(13f, -13f), 0.501f, Random.Range(13f, -13f));
+
+		Instantiate(goal, spawnLocation, transform.rotation);
+
+		goalSpawned = true;
 	}
 	
 	void Update () 

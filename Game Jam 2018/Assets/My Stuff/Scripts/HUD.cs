@@ -7,8 +7,19 @@ using UnityEngine;
 public class HUD : MonoBehaviour 
 {
 	[SerializeField] protected Text scoreText;
+	[SerializeField] protected Text highScoreText;
+	protected int highScore;
+
 	void Update() 
 	{
 		scoreText.text = "Score: " + Goal.score;
+
+		if (Goal.score > highScore)
+        {
+            highScore = Goal.score;
+            PlayerPrefs.SetInt("Highscore", highScore);
+        }
+		
+        highScoreText.text = "High-Score: " + PlayerPrefs.GetInt("Highscore", highScore);
 	}
 }
