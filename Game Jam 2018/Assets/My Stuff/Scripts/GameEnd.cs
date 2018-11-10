@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class GameEnd : MonoBehaviour
@@ -20,5 +21,8 @@ public class GameEnd : MonoBehaviour
 		countdown = Mathf.Round(countdown * 100.0f) / 100.0f;
 
 		timerText.text = "Countdown: " + countdown;
+
+		if (countdown <= 0)
+			SceneManager.LoadScene("End Scene");
 	}
 }

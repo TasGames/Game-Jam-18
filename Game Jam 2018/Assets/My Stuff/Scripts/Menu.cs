@@ -10,5 +10,6 @@ public class Menu : MonoBehaviour
 	{
 		SceneManager.LoadScene("Main");
 		Goal.score = 0;
+		Spawner.goalSpawned = false;
 	}
 }
