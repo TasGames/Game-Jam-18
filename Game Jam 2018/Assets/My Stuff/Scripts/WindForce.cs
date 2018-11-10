@@ -18,6 +18,7 @@ public class WindForce : MonoBehaviour
 	[SerializeField] protected GameObject pT1A;
 	[SerializeField] protected GameObject pT2A;
 	[SerializeField] protected GameObject pT3A;
+	[SerializeField] protected ParticleSystem wind;
 
 	void Start() 
 	{
@@ -85,6 +86,7 @@ public class WindForce : MonoBehaviour
 				powerLevel = 1;
 				pT1A.SetActive(true);
 				pT1.SetActive(false);
+				wind.Play();
 			}
 			else if (powerLevel == 1)
 			{
@@ -110,6 +112,7 @@ public class WindForce : MonoBehaviour
 				pT2.SetActive(true);
 				pT3A.SetActive(false);
 				pT3.SetActive(true);
+				wind.Stop();
 			}
 		}
 	}
