@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using UnityEngine;
 
 public class GameEnd : MonoBehaviour
- {
+{
 	[SerializeField] protected Text timerText;
 	[SerializeField] protected float timerSize;
 	protected float countdown;
