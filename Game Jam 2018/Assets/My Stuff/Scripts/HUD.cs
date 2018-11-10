@@ -14,12 +14,13 @@ public class HUD : MonoBehaviour
 	{
 		scoreText.text = "Score: " + Goal.score;
 
-		if (Goal.score > highScore)
+        highScore = PlayerPrefs.GetInt("Highscore", highScore);
+
+        if (Goal.score > highScore)
         {
             highScore = Goal.score;
             PlayerPrefs.SetInt("Highscore", highScore);
         }
-		
         highScoreText.text = "High-Score: " + PlayerPrefs.GetInt("Highscore", highScore);
 	}
 }
