@@ -10,21 +10,17 @@ public class HUD : MonoBehaviour
 	[SerializeField] protected Text highScoreText;
 	protected int highScore;
 
-	void Start()
-	{
-		PlayerPrefs.SetInt("Highscore", highScore);
-
-	}
 	void Update() 
 	{
 		scoreText.text = "Score: " + Goal.score;
 
-		if (Goal.score > highScore)
+        highScore = PlayerPrefs.GetInt("Highscore", highScore);
+
+        if (Goal.score > highScore)
         {
             highScore = Goal.score;
             PlayerPrefs.SetInt("Highscore", highScore);
-		}
-		
+        }
         highScoreText.text = "High-Score: " + PlayerPrefs.GetInt("Highscore", highScore);
 	}
 }
