@@ -78,7 +78,7 @@ public class WindForce : MonoBehaviour
 
 	void OnMouseOver()
 	{
-		if (Input.GetMouseButtonUp(0))
+		if (Input.GetMouseButtonUp(1) && Menu.isPaused == true)
 		{
 			if (powerLevel == 0)
 			{

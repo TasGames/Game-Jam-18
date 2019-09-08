@@ -6,8 +6,8 @@ using UnityEngine;
 
 public class HUD : MonoBehaviour 
 {
-	[SerializeField] protected Text scoreText;
-	[SerializeField] protected Text highScoreText;
+	[SerializeField] protected TextMeshProUGUI scoreText;
+	[SerializeField] protected TextMeshProUGUI highScoreText;
 	protected int highScore;
 
 	void Update() 

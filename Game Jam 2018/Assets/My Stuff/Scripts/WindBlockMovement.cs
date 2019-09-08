@@ -27,28 +27,31 @@ public class WindBlockMovement : MonoBehaviour
 
 	void OnMouseDrag()
 	{
-		Vector3 mousePos;
-		mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, distance);
-
-		Vector3 objPos = Camera.main.ScreenToWorldPoint(mousePos);
-
-		if (isHorizontal == true)
+		if (Menu.isPaused == true)
 		{
-			transform.position = new Vector3(objPos.x, transform.position.y, transform.position.z);
+			Vector3 mousePos;
+			mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, distance);
 
-			if (transform.position.x > maxX)
-				transform.position = new Vector3(maxX, transform.position.y, transform.position.z);
-			else if (transform.position.x <minX)
-				transform.position = new Vector3(minX, transform.position.y, transform.position.z);
-		}
-		else
-		{
-			transform.position = new Vector3(transform.position.x, transform.position.y, objPos.z);
+			Vector3 objPos = Camera.main.ScreenToWorldPoint(mousePos);
 
-			if (transform.position.z > maxZ)
-				transform.position = new Vector3(transform.position.x, transform.position.y, maxZ);
-			else if (transform.position.z <minZ)
-				transform.position = new Vector3(transform.position.x, transform.position.y, minZ);
+			if (isHorizontal == true)
+			{
+				transform.position = new Vector3(objPos.x, transform.position.y, transform.position.z);
+
+				if (transform.position.x > maxX)
+					transform.position = new Vector3(maxX, transform.position.y, transform.position.z);
+				else if (transform.position.x <minX)
+					transform.position = new Vector3(minX, transform.position.y, transform.position.z);
+			}
+			else
+			{
+				transform.position = new Vector3(transform.position.x, transform.position.y, objPos.z);
+
+				if (transform.position.z > maxZ)
+					transform.position = new Vector3(transform.position.x, transform.position.y, maxZ);
+				else if (transform.position.z <minZ)
+					transform.position = new Vector3(transform.position.x, transform.position.y, minZ);
+			}
 		}
 		
 	}

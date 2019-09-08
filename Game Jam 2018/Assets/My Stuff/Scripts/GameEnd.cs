@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 
@@ -8,13 +9,14 @@ public class GameEnd : MonoBehaviour
 {
 	public static bool gameOver = false;
 	[SerializeField] protected GameObject gameOverMenu;
-	[SerializeField] protected Text timerText;
 	[SerializeField] protected float timerSize;
+	protected TextMeshProUGUI timerText;
 	protected float countdown;
 	protected bool continueC;
 
 	void Start() 
 	{
+		timerText = GetComponent<TextMeshProUGUI>();
 		countdown = timerSize;
 		continueC = true;
 	}
