@@ -5,31 +5,51 @@ using UnityEngine;
 
 public class Menu : MonoBehaviour 
 {
-	public static bool isPaused = false;
-	[SerializeField] protected GameObject pauseMenu;
+	public static bool hasPlayed = false;
+	public static bool isPaused;
 
-	void Update()
+	[SerializeField] protected GameObject pauseMenu;
+	[SerializeField] protected GameObject startGO;
+	[SerializeField] protected GameObject controlsGO;
+	[SerializeField] protected GameObject playingGO;
+	protected GameObject currentMenu;
+
+	void Start()
 	{
-		if (isPaused == false)
-        {
-            pauseMenu.SetActive(true);
-            Time.timeScale = 0f;
-        }
-        else
-        {
-            pauseMenu.SetActive(false);
-            if (GameEnd.gameOver == false)
-                Time.timeScale = 1f;
-        }
+		if (hasPlayed == false)
+		{
+			startGO.SetActive(true);
+			isPaused = false;
+		}
+		else
+		{
+			playingGO.SetActive(true);
+			isPaused = false;
+		}
 	}
 
 	public void Play()
 	{
+		if (hasPlayed == false)
+			hasPlayed = true;
+
 		SceneManager.LoadScene("Main");
+
 		Goal.score = 0;
 		Spawner.goalSpawned = false;
-		isPaused = false;
 		GameEnd.gameOver = false;
+	}
+
+	public void Controls()
+	{
+		startGO.SetActive(false);
+		controlsGO.SetActive(true);
+	}
+
+	public void Return()
+	{
+		controlsGO.SetActive(false);
+		startGO.SetActive(true);
 	}
 
 	public void Quit()
@@ -42,10 +62,15 @@ public class Menu : MonoBehaviour
         if (isPaused == false)
         {
 			isPaused = true;
+			pauseMenu.SetActive(true);
+			Time.timeScale = 0f;
         }
         else
         {
 			isPaused = false;
+			pauseMenu.SetActive(false);
+			Time.timeScale = 1f;
         }
     }
+
 }

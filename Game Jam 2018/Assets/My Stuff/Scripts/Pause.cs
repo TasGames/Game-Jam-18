@@ -16,7 +16,7 @@ public class Pause : MonoBehaviour
 		
 	}
 
-	void pauseIt()
+	/*void pauseIt()
     {
         if (Menu.isPaused == true)
         {
@@ -29,5 +29,5 @@ public class Pause : MonoBehaviour
             if (GameEnd.gameOver == false)
                 Time.timeScale = 1f;
         }
-    }
+    }*/
 }

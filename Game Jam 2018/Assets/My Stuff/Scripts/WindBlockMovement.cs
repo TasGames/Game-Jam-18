@@ -27,7 +27,7 @@ public class WindBlockMovement : MonoBehaviour
 
 	void OnMouseDrag()
 	{
-		if (Menu.isPaused == true)
+		if (Menu.isPaused == false)
 		{
 			Vector3 mousePos;
 			mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, distance);
