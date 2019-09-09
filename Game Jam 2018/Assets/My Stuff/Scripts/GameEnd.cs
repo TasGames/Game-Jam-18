@@ -16,6 +16,7 @@ public class GameEnd : MonoBehaviour
 
 	void Start() 
 	{
+		Application.targetFrameRate = 60;
 		timerText = GetComponent<TextMeshProUGUI>();
 		countdown = timerSize;
 		continueC = true;
@@ -38,6 +39,7 @@ public class GameEnd : MonoBehaviour
 			{
 				gameOver = true;
 				continueC = false;
+				countdown = 0;
 			}
 
 			if (gameOver == true)
