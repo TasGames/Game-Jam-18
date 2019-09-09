@@ -8,7 +8,9 @@ public class Goal : MonoBehaviour
 
 	void OnTriggerEnter(Collider collider)
 	{
-		score += 1;
+		if (Menu.hasPlayed == true)
+			score += 1;
+
 		Destroy(gameObject);
 		Spawner.goalSpawned = false;
 	}
